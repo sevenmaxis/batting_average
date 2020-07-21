@@ -23,19 +23,19 @@ RSpec.describe Average, type: :model do
     it 'makes sure using index for year' do
       analyze = Average.where(year: '1900').analyze
 
-      expect(analyze).to include('Bitmap Heap Scan on averages')
+      expect(analyze).to include('Bitmap Index Scan on index_averages_on_year_and_teams')
     end
 
     it 'makes sure using index for teams' do
       analyze = Average.where("teams @> ARRAY[?]::varchar[]", Average.last.teams).analyze
 
-      expect(analyze).to include('Bitmap Heap Scan on averages')
+      expect(analyze).to include('Bitmap Index Scan on index_averages_on_year_and_teams')
     end
 
     it 'makes sure using index for year and teams' do
       analyze = Average.where(year: '1891').where("teams @> ARRAY[?]::varchar[]", Average.last.teams).analyze
 
-      expect(analyze).to include('Bitmap Heap Scan on averages')
+      expect(analyze).to include('Bitmap Index Scan on index_averages_on_year_and_teams')
     end
   end
 end
