@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
+  gem 'activerecord-analyze'
   gem 'awesome_print'
   gem 'factory_bot_rails'
   gem 'faker'

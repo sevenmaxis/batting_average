@@ -1,0 +1,2 @@
+class Average < ApplicationRecord
+end
