@@ -1,0 +1,33 @@
+yearID,lgID,teamID,franchID,divID,Rank,Ghome,DivWin,WCWin,LgWin,WSWin,name,park,attendance,BPF,PPF,teamIDBR,teamIDlahman45,teamIDretro
+1871,NA,BS1,BNA,,3,,,,N,,Boston Red Stockings,South End Grounds I,,103,98,BOS,BS1,BS1
+1871,NA,CH1,CNA,,2,,,,N,,Chicago White Stockings,Union Base-Ball Grounds,,104,102,CHI,CH1,CH1
+1871,NA,CL1,CFC,,8,,,,N,,Cleveland Forest Citys,National Association Grounds,,96,100,CLE,CL1,CL1
+1871,NA,FW1,KEK,,7,,,,N,,Fort Wayne Kekiongas,Hamilton Field,,101,107,KEK,FW1,FW1
+1871,NA,NY2,NNA,,5,,,,N,,New York Mutuals,Union Grounds (Brooklyn),,90,88,NYU,NY2,NY2
+1871,NA,PH1,PNA,,1,,,,Y,,Philadelphia Athletics,Jefferson Street Grounds,,102,98,ATH,PH1,PH1
+1871,NA,RC1,ROK,,9,,,,N,,Rockford Forest Citys,Agricultural Society Fair Grounds,,97,99,ROK,RC1,RC1
+1871,NA,TRO,TRO,,6,,,,N,,Troy Haymakers,Haymakers' Grounds,,101,100,TRO,TRO,TRO
+1871,NA,WS3,OLY,,4,,,,N,,Washington Olympics,Olympics Grounds,,94,98,OLY,WS3,WS3
+1872,NA,BL1,BLC,,2,,,,N,,Baltimore Canaries,Newington Park,,106,102,BAL,BL1,BL1
+1872,NA,BR1,ECK,,9,,,,N,,Brooklyn Eckfords,Union Grounds,,87,96,ECK,BR1,BR1
+1872,NA,BR2,BRA,,6,,,,N,,Brooklyn Atlantics,Capitoline Grounds,,115,122,BRA,BR2,BR2
+1872,NA,BS1,BNA,,1,,,,Y,,Boston Red Stockings,South End Grounds I,,105,100,BOS,BS1,BS1
+1872,NA,CL1,CFC,,7,,,,N,,Cleveland Forest Citys,National Association Grounds,,96,100,CLE,CL1,CL1
+1872,NA,MID,MAN,,8,,,,N,,Middletown Mansfields,Mansfield Club Grounds,,98,103,MAN,MID,MID
+1872,NA,NY2,NNA,,3,,,,N,,New York Mutuals,Union Grounds (Brooklyn),,93,92,NYU,NY2,NY2
+1872,NA,PH1,PNA,,4,,,,N,,Philadelphia Athletics,Jefferson Street Grounds,,102,100,ATH,PH1,PH1
+1872,NA,TRO,TRO,,5,,,,N,,Troy Haymakers,Haymakers' Grounds,,101,100,TRO,TRO,TRO
+1872,NA,WS3,OLY,,10,,,,N,,Washington Olympics,Olympics Grounds,,94,98,OLY,WS3,WS3
+1872,NA,WS4,NAT,,11,,,,N,,Washington Nationals,Nationals Grounds,,129,141,NAT,WS4,WS4
+1873,NA,BL1,BLC,,3,,,,N,,Baltimore Canaries,Newington Park,,101,102,BAL,BL1,BL1
+1873,NA,BL4,MAR,,9,,,,N,,Baltimore Marylands,Newington Park,,77,99,MAR,BL4,BL4
+1873,NA,BR2,BRA,,6,,,,N,,Brooklyn Atlantics,Union Grounds,,90,94,BRA,BR2,BR2
+1873,NA,BS1,BNA,,1,,,,Y,,Boston Red Stockings,South End Grounds I,,106,100,BOS,BS1,BS1
+1873,NA,ELI,RES,,8,,,,N,,Elizabeth Resolutes,Waverly Fairgrounds,,92,103,RES,ELI,ELI
+1873,NA,NY2,NNA,,4,,,,N,,New York Mutuals,Union Grounds (Brooklyn),,98,96,NYU,NY2,NY2
+1873,NA,PH1,PNA,,5,,,,N,,Philadelphia Athletics,Jefferson Street Grounds,,108,105,ATH,PH1,PH1
+1873,NA,PH2,PWS,,2,,,,N,,Philadelphia Whites,Jefferson Street Grounds,,103,101,PHI,PH2,PH2
+1873,NA,WS5,WBL,,7,,,,N,,Washington Blue Legs,Olympics Grounds,,96,102,WAS,WS5,WS5
+1874,NA,BL1,BLC,,8,,,,N,,Baltimore Canaries,Newington Park,,102,104,BAL,BL1,BL1
+1874,NA,BR2,BRA,,6,,,,N,,Brooklyn Atlantics,Union Grounds,,89,94,BRA,BR2,BR2
+1874,NA,BS1,BNA,,1,,,,Y,,Boston Red Stockings,South End Grounds I,,105,98,BOS,BS1,BS1
