@@ -7,8 +7,5 @@ class CreateAverages < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-
-    add_index :averages, :teams, using: :gin
-    add_index :averages, :year, using: :btree, unique: true
   end
 end
