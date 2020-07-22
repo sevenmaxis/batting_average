@@ -17,13 +17,27 @@ class AverageAdapter
     hash_table.each_with_object([]) do |(_, value), averages|
       attributes = { player_id: value.first[0], year: value.first[1] }
 
-      attributes[:teams] = value.reduce([]) { |m, r| m << r[2] }.uniq
+      attributes[:teams] = extract_teams(value)
 
-      hits = value.reduce([]) { |m, r| m << r[3] }.map(&:to_f).sum
-      bats = value.reduce([]) { |m, r| m << r[4] }.map(&:to_f).sum
+      hits = extract_floats(value, 3)
+      bats = extract_floats(value, 4)
       attributes[:average] = (hits / (bats.nonzero? || 1)).round(3)
 
       averages << Average.new(attributes)
     end
+  end
+
+  private
+
+  def extract_teams(value)
+    extract(value, 2).uniq
+  end
+
+  def extract_floats(value, index)
+    extract(value, index).map(&:to_f).sum
+  end
+
+  def extract(value, index)
+    value.reduce([]) { |m, r| m << r[index] }
   end
 end
