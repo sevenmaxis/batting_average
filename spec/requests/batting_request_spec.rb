@@ -11,10 +11,7 @@ RSpec.describe "Battings", type: :request do
     teams.each { |team| query << "teams[]=#{team}" } if teams.present?
     query = query.join("&")
 
-    if query.present?
-      url << "?"
-      url << query
-    end
+    url.concat("?", query) if query.present?
 
     get(url)
   end
