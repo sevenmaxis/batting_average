@@ -11,7 +11,7 @@ class Average < ApplicationRecord
         scope = scope.where("teams @> ARRAY[?]::varchar[]", teams)
       end
 
-      scope.order(:average)
+      scope.order(average: :desc)
     end
   end
 end

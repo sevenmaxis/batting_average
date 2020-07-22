@@ -88,7 +88,7 @@ RSpec.describe Average, type: :model do
     end
 
     it 'returns result sorted by batting average' do
-      batting_averages = Average.pluck(:average).sort
+      batting_averages = Average.pluck(:average).sort.reverse
 
       averages = Average.search
 
