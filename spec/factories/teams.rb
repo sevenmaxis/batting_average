@@ -2,6 +2,7 @@
 
 FactoryBot.define do
   factory :team do
-    name { "MyString" }
+    sequence(:id) { |n| "PS#{n}" }
+    name { Faker::Team.name }
   end
 end
