@@ -86,5 +86,13 @@ RSpec.describe Average, type: :model do
       expect(result.first.year).to eq(year)
       expect(result.first.teams).to eq(teams)
     end
+
+    it 'returns result sorted by batting average' do
+      batting_averages = Average.pluck(:average).sort
+
+      averages = Average.search
+
+      expect(averages.pluck(:average)).to eq(batting_averages)
+    end
   end
 end
