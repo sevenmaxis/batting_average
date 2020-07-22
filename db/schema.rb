@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_180909) do
+ActiveRecord::Schema.define(version: 2020_07_22_212415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_07_22_180909) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_teams_on_name"
   end
 
 end
