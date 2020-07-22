@@ -47,37 +47,12 @@ RSpec.describe "Battings", type: :request do
       expect(response).to have_http_status(:success)
       expect(json).to eq([average.attributes.slice(*attributes)])
     end
-  end
-=begin
-  describe "GET #index" do
-    before do
-      get :index
-    end
-    it "returns http success" do
+
+    it 'returns records with given year and teams' do
+      search_request(year: average.year, teams: average.teams)
+
       expect(response).to have_http_status(:success)
-    end
-    it "JSON body response contains expected recipe attributes" do
-      json_response = JSON.parse(response.body)
-      expect(hash_body.keys).to match_array([:id, :ingredients, :instructions])
+      expect(json).to eq([average.attributes.slice(*attributes)])
     end
   end
-
-  it "creates a Widget and redirects to the Widget's page" do
-    get "/widgets/new"
-    expect(response).to render_template(:new)
-
-    post "/widgets", :params => { :widget => {:name => "My Widget"} }
-
-    expect(response).to redirect_to(assigns(:widget))
-    follow_redirect!
-
-    expect(response).to render_template(:show)
-    expect(response.body).to include("Widget was successfully created.")
-  end
-
-  it "does not render a different template" do
-    get "/widgets/new"
-    expect(response).to_not render_template(:show)
-  end
-=end
 end
