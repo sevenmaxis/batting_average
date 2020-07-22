@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'terminal-table'
+require 'rest-client'
+require 'json'
+require 'pry'
+
+options = {}
+
+OptionParser.new do |parser|
+  parser.on('-y', '--year=YEAR', 'Search by year') do |year|
+    options[:year] = year
+  end
+
+  parser.on('-t', '--teams=TEAM1,TEAM2...', Array, 'Search by teams') do |teams|
+    options[:teams] = teams
+  end
+end.parse!
+
+url = 'localhost:3000/search'
+
+query = []
+query << "year=#{options[:year]}" if options[:year]
+options[:teams]&.each { |team| query << "teams[]=#{team}" }
+query = query.join("&")
+
+url.concat("?", query) unless query.empty?
+
+response = RestClient.get(url)
+
+averages = JSON.parse(response.body)
+
+rows = averages.each_with_object([]) do |average, memo|
+  memo << [average['player_id'], average['year'], average['teams'].join(', '), average['average']]
+end
+
+table = Terminal::Table.new headings: ['playerID', 'yearId', 'Team name(s)', 'Batting Average'], rows: rows
+
+puts table
