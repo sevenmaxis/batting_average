@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_180909) do
+ActiveRecord::Schema.define(version: 2020_07_22_180909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
   enable_extension "plpgsql"
 
-  create_table "averages", id: :string, force: :cascade do |t|
+  create_table "averages", force: :cascade do |t|
+    t.string "player_id", null: false
     t.string "year", null: false
     t.string "teams", default: [], array: true
     t.float "average", default: 0.0

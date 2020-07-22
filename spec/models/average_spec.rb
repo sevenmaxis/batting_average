@@ -15,14 +15,6 @@ RSpec.describe Average, type: :model do
     end
   end
 
-  describe "Checks database restrictions" do
-    it "does not create with same id" do
-      expect {
-        build_averages.each { |average| average.id = "PS1" }.map(&:save!)
-      }.to raise_error(ActiveRecord::RecordNotUnique)
-    end
-  end
-
   describe "Using indexs" do
     before(:each) do
       # NOTE: Force to use index for small amount of records
