@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe "Battings", type: :request do
   def search_request(year: nil, teams: nil)
-    url = "/search"
+    url = +"/search"
 
     query = []
     query << "year=#{year}" if year.present?
@@ -20,11 +20,25 @@ RSpec.describe "Battings", type: :request do
   end
 
   describe "GET #search" do
+    let(:year) { '1001' }
+    let(:teams) { [Faker::Team.name] }
+    let(:average) { create(:average, year: year, teams: teams) }
+    let(:attributes) { ['player_id', 'year', 'teams', 'average'] }
+
+    before(:each) { 10.times.map { create(:average) } }
+
     it 'returns empty result' do
       search_request
 
       expect(response).to have_http_status(:success)
-      expect(json).to be_empty
+      expect(json.size).to eq(10)
+    end
+
+    it 'returns records with given year' do
+      search_request(year: average.year)
+
+      expect(response).to have_http_status(:success)
+      expect(json).to eq([average.attributes.slice(*attributes)])
     end
   end
 =begin
