@@ -8,7 +8,7 @@ RSpec.describe "Battings", type: :request do
 
     query = []
     query << "year=#{year}" if year.present?
-    query << "teams=#{teams}" if teams.present?
+    teams.each { |team| query << "teams[]=#{team}" } if teams.present?
     query = query.join("&")
 
     if query.present?
@@ -36,6 +36,13 @@ RSpec.describe "Battings", type: :request do
 
     it 'returns records with given year' do
       search_request(year: average.year)
+
+      expect(response).to have_http_status(:success)
+      expect(json).to eq([average.attributes.slice(*attributes)])
+    end
+
+    it 'returns records with given teams' do
+      search_request(teams: average.teams)
 
       expect(response).to have_http_status(:success)
       expect(json).to eq([average.attributes.slice(*attributes)])

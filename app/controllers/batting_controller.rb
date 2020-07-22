@@ -10,6 +10,6 @@ class BattingController < ApplicationController
   private
 
   def average_params
-    params.permit(:year, :teams)
+    params.permit(:year, teams: [])
   end
 end
