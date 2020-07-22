@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 desc "Populate database with Teams.csv and Batting.csv"

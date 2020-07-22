@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Average < ApplicationRecord
   class << self
     def search(year: nil, teams: [])

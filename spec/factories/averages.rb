@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :average do
     sequence(:player_id) { |n| "PS#{n}" }

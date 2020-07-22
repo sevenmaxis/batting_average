@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AverageAdapter
   attr_reader :hash_table
 
