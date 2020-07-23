@@ -2,13 +2,13 @@
 
 class Average < ApplicationRecord
   class << self
-    def search(year: nil, teams: [])
+    def search(year: nil, team_ids: [])
       scope = Average.all
 
       scope = scope.where(year: year) if year
 
-      if teams.is_a?(Array) && teams.present?
-        scope = scope.where("teams @> ARRAY[?]::varchar[]", teams)
+      if team_ids.is_a?(Array) && team_ids.present?
+        scope = scope.where("teams @> ARRAY[?]::varchar[]", team_ids)
       end
 
       scope.order(average: :desc)

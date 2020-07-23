@@ -73,14 +73,14 @@ RSpec.describe Average, type: :model do
     end
 
     it 'searches by teams' do
-      result = Average.search(teams: average.teams)
+      result = Average.search(team_ids: average.teams)
 
       expect(result.count).to eq(1)
       expect(result.first.teams).to eq(teams)
     end
 
     it 'searches by year and teams' do
-      result = Average.search(year: average.year, teams: average.teams)
+      result = Average.search(year: average.year, team_ids: average.teams)
 
       expect(result.count).to eq(1)
       expect(result.first.year).to eq(year)
