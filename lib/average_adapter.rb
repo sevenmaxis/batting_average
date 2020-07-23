@@ -3,11 +3,17 @@
 class AverageAdapter
   attr_reader :hash_table
 
-  def initialize
+  def initialize(csv_file_path)
     @hash_table = Hash.new { |h, k| h[k] = [] }
+
+    @teams = CSV.foreach(csv_file_path, headers: true).with_object({}) do |row, memo|
+      memo[row['teamID']] = row['name']
+    end
   end
 
   def insert(row)
+    row['teamID'] = @teams[row['teamID']]
+
     params = [row['playerID'], row['yearID'], row['teamID'], row['H'], row['AB']]
 
     hash_table[row['playerID'] + row['yearID']] << params
