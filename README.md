@@ -5,8 +5,7 @@
 ```bash
 # cd into directory
 bundle install
-rake db:setup
-rake upload_csv_files
+rake db:setup db:seed
 bundle exec rails server # -p 3000
 
 # another terminal same directory
