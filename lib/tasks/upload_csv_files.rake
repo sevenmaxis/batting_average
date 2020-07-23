@@ -9,7 +9,6 @@ task :upload_csv_files => :environment do
   adapter = AverageAdapter.new('public/csv/Teams.csv')
 
   CSV.foreach('public/csv/Batting.csv', headers: true) do |row|
-    row['teamID'] = teams[row['teamID']]
     adapter.insert(row)
   end
 
