@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_212415) do
+ActiveRecord::Schema.define(version: 2020_07_23_110433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_22_212415) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["year", "teams"], name: "index_averages_on_year_and_teams", using: :gin
-  end
-
-  create_table "teams", id: :string, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_teams_on_name"
   end
 
 end

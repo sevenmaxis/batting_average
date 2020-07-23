@@ -45,10 +45,15 @@ RSpec.describe Average, type: :model do
 
   describe "Importing csv file" do
     it 'into model' do
+      teams = {}
+      CSV.foreach('spec/support/csv/Teams.csv', headers: true) do |row|
+        teams[row['teamID']] = row['name']
+      end
+
       adapter = AverageAdapter.new
 
       CSV.foreach("spec/support/csv/Batting.csv", headers: true) do |row|
-        create(:team, id: row['teamID']) unless Team.where(id: row['teamID']).present?
+        row['teamID'] = teams[row['teamID']]
         adapter.insert(row)
       end
 

@@ -18,8 +18,8 @@ RSpec.describe "Battings", type: :request do
 
   describe "GET #search" do
     let(:year) { '1001' }
-    let(:team) { create(:team) }
-    let!(:average) { create(:average, year: year, teams: [team.name]) }
+    let(:teams) { [Faker::Team.name] }
+    let!(:average) { create(:average, year: year, teams: teams) }
     let(:attributes) { ['player_id', 'year', 'teams', 'average'] }
 
     before(:each) { 10.times.map { create(:average) } }
@@ -39,14 +39,14 @@ RSpec.describe "Battings", type: :request do
     end
 
     it 'returns records with given teams' do
-      search_request(teams: [team.name])
+      search_request(teams: teams)
 
       expect(response).to have_http_status(:success)
       expect(json).to eq([average.attributes.slice(*attributes)])
     end
 
     it 'returns records with given year and teams' do
-      search_request(year: average.year, teams: [team.name])
+      search_request(year: average.year, teams: teams)
 
       expect(response).to have_http_status(:success)
       expect(json).to eq([average.attributes.slice(*attributes)])
