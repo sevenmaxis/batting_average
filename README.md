@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```bash
+# cd into directory
+bundle install
+rake db:setup
+rake upload_csv_files
+bundle exec rails server # -p 3000
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# another terminal same directory
+bin/client -y 1891 -t 'Louisville Eclipse','Boston Reds'
+ bin/client -y 1988 -t 'Seattle Mariners','New York Mets'
+```

@@ -16,6 +16,7 @@ task :upload_csv_files => :environment do
 
   puts "--------------------------"
   puts "Importing from Batting.csv"
+  puts "It will take about 2 minutes"
   adapter = AverageAdapter.new
 
   CSV.foreach('public/csv/Batting.csv', headers: true) { |row| adapter.insert(row) }
