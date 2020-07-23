@@ -2,9 +2,7 @@
 
 class BattingController < ApplicationController
   def search
-    team_ids = Team.where(name: teams).pluck(:id)
-
-    averages = Average.search(year: year, teams: team_ids)
+    averages = Average.search(year: year, teams: teams)
 
     render json: averages.as_json(only: [:player_id, :year, :teams, :average])
   end

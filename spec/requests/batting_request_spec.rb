@@ -19,7 +19,7 @@ RSpec.describe "Battings", type: :request do
   describe "GET #search" do
     let(:year) { '1001' }
     let(:team) { create(:team) }
-    let!(:average) { create(:average, year: year, teams: [team.id]) }
+    let!(:average) { create(:average, year: year, teams: [team.name]) }
     let(:attributes) { ['player_id', 'year', 'teams', 'average'] }
 
     before(:each) { 10.times.map { create(:average) } }

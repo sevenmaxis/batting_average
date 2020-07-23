@@ -44,10 +44,13 @@ RSpec.describe Average, type: :model do
   end
 
   describe "Importing csv file" do
-    it 'imports csv file into Average' do
+    it 'into model' do
       adapter = AverageAdapter.new
 
-      CSV.foreach("spec/support/csv/Batting.csv", headers: true) { |row| adapter.insert(row) }
+      CSV.foreach("spec/support/csv/Batting.csv", headers: true) do |row|
+        create(:team, id: row['teamID']) unless Team.where(id: row['teamID']).present?
+        adapter.insert(row)
+      end
 
       Average.import adapter.result
 
@@ -73,14 +76,14 @@ RSpec.describe Average, type: :model do
     end
 
     it 'searches by teams' do
-      result = Average.search(team_ids: average.teams)
+      result = Average.search(teams: average.teams)
 
       expect(result.count).to eq(1)
       expect(result.first.teams).to eq(teams)
     end
 
     it 'searches by year and teams' do
-      result = Average.search(year: average.year, team_ids: average.teams)
+      result = Average.search(year: average.year, teams: average.teams)
 
       expect(result.count).to eq(1)
       expect(result.first.year).to eq(year)

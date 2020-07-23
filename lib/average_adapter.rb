@@ -30,7 +30,7 @@ class AverageAdapter
   private
 
   def extract_teams(value)
-    extract(value, 2).uniq
+    extract(value, 2).uniq.map { |team_id| Team.find(team_id).name }
   end
 
   def extract_floats(value, index)
