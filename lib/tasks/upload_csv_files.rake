@@ -12,5 +12,5 @@ task :upload_csv_files => :environment do
   CSV.foreach('public/csv/Batting.csv', headers: true) { |row| adapter.insert(row) }
 
   Average.delete_all
-  Average.import adapter.result
+  Average.import adapter.result, validate: false, timestamps: false
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_110433) do
+ActiveRecord::Schema.define(version: 2020_07_28_151509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2020_07_23_110433) do
     t.string "year", null: false
     t.string "teams", default: [], array: true
     t.float "average", default: 0.0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
     t.index ["year", "teams"], name: "index_averages_on_year_and_teams", using: :gin
   end
 
